@@ -1,0 +1,37 @@
+/* style.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f0f0f0;
+}
+h1 {
+  color: #333;
+}
+p {
+  font-size: 14px;
+  color: #666;
+}
+/* Button styles */
+.myButton {
+  background-color: black;
+  color: wheat;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+.myButton:hover {
+  background-color: green;
+  color: yellow;
+}
+.myButton:active {
+  background-color: red;
+  color: purple;
+}
+.myButton:focus {
+  outline: 2px solid blue;
+}
