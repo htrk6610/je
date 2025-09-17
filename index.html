@@ -38,21 +38,33 @@
     </div>
     <!-- Weather Information Form -->
     <div>
-      <section>Weather Information</section>
-      <form id="weatherForm" action="/search" method="GET">
-        <input type="text" id="locationInput" placeholder="Enter location" />
-        <button type="submit" class="weatherButton" id="weatherButton">
-          Check Weather
-        </button>
-      </form>
+      <!-- Weather Form -->
+      <div>
+        <section>Weather Information</section>
+        <form id="weatherForm" action="/search" method="GET">
+          <input type="text" id="locationInput" placeholder="Enter location" />
+          <button type="submit" class="weatherButton" id="weatherButton">
+            Check Weather
+          </button>
+        </form>
+      </div>
+      <!-- Weather Result Display -->
+      <div id="weatherResult">
+        <section>Weather Result</section>
+        <p id="weatherResultInfo">Weather information will be displayed here.</p>
+        <p id="weatherResultCity">Weather in <span id="weatherResultCityName"></span></p>
+        <p id="weatherResultTemp">Temperature: <span id="weatherResultTempValue"></span> °C</p>
+        <p id="weatherResultDesc">Weather: <span id="weatherResultDescValue"></span></p>
+        <p id="weatherResultHumidity">Humidity: <span id="weatherResultHumidityValue"></span>%</p>
+        <p id="weatherResultWind">Wind Speed: <span id="weatherResultWindValue"></span> m/s</p>
+        <p id="weatherResultCoords">Coordinates: [<span id="weatherResultCoordsValue"></span>]</p>
+        <p id="weatherResultError">Error fetching weather data: <span id="weatherResultErrorValue"></span></p>
+      </div>
     </div>
     <!-- Note Section -->
     <div>
       <p>Note: This is a demo page for the coding challenge.</p>
       <p>Good luck and have fun!</p>
-    </div>
-    <!-- Log Form Console -->
-    <div id="logFormConsole">
     </div>
     <!-- Footer Section -->
     <div>
