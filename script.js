@@ -24,12 +24,46 @@ weatherForm.addEventListener("submit", function (event) {
         .then(response => response.json())
         .then(data => {
             console.log("Weather data fetched successfully:", data);
-
-            const weatherDiv = document.getElementById("weatherResult");
-            weatherDiv.innerHTML = `Погода в ${data.name}: ${data.main.temp}°C, ${data.weather[0].description}`;
+            const weatherData = document.getElementById("weatherResultData");
+            weatherData.innerHTML = `Погода в ${data.name}:`;
             console.log("Weather information displayed.");
+            const weatherDataCountry = document.getElementById("weatherResultDataCountry");
+            weatherDataCountry.innerHTML = `Страна: ${data.sys.country}`;
+            const weatherTimezone = document.getElementById("weatherResultTimeZone");
+            const timezoneHours = (data.timezone / 3600).toFixed(1);
+            weatherTimezone.innerHTML = `Timezone: UTC ${timezoneHours >= 0 ? '+' : ''}${timezoneHours}`;
+            const weatherTemp = document.getElementById("weatherResultTemp");
+            weatherTemp.innerHTML = `${data.main.temp}°C`;
+            const weatherTempFeel = document.getElementById("weatherResultTempFeel");
+            weatherTempFeel.innerHTML = `Feels like: ${data.main.feels_like}°C`;
+            const weatherGrndlvl = document.getElementById("weatherResultGrndlvl");
+            weatherGrndlvl.innerHTML = `Ground Level: ${data.main.grnd_level} hPa`;
+            const weatherHumidity = document.getElementById("weatherResultHumidity");
+            weatherHumidity.innerHTML = `Humidity: ${data.main.humidity}%`;
+            const weatherPressure = document.getElementById("weatherResultPressure");
+            weatherPressure.innerHTML = `Pressure: ${data.main.pressure} hPa`;
+            const weatherSeaLevel = document.getElementById("weatherResultSeaLevel");
+            weatherSeaLevel.innerHTML = `Sea Level: ${data.main.sea_level} hPa`;
+            const weatherWeather = document.getElementById("weatherResultWeather");
+            weatherWeather.innerHTML = `Weather: ${data.weather[0].main}`;
+            const weatherIcon = document.getElementById("weatherResultIcon");
+            weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+            const weatherWeatherDescription = document.getElementById("weatherResultWeatherDescription");
+            weatherWeatherDescription.innerHTML = `Description: ${data.weather[0].description}`;
+            const weatherWindSpeed = document.getElementById("weatherResultWindSpeed");
+            weatherWindSpeed.innerHTML = `Wind Speed: ${data.wind.speed} m/s`;
+            const weatherWindDeg = document.getElementById("weatherResultWindDeg");
+            weatherWindDeg.innerHTML = `Wind Direction: ${data.wind.deg}°`;
+            const weatherWindGust = document.getElementById("weatherResultWindGust");
+            weatherWindGust.innerHTML = `Wind Gust: ${data.wind.gust} m/s`;
+            const weatherCloudsAll = document.getElementById("weatherResultCloudsAll");
+            weatherCloudsAll.innerHTML = `Cloudiness: ${data.clouds.all}%`;
+            const weatherVisibility = document.getElementById("weatherResultVisibility");
+            weatherVisibility.innerHTML = `Visibility: ${data.visibility} meters`;
         })
         .catch(error => {
             console.error("Error fetching weather data:", error);
+            const weatherData = document.getElementById("weatherResult");
+            weatherData.innerHTML = "Error fetching weather data. Please try again.";
         });
 });
