@@ -8,23 +8,21 @@
   </head>
   <body>
     <!-- Header Section -->
-    <section class="headerSection">
-      <header>
-        <h1 class="headerTitle">Welcome to the Challenge Page</h1>
-        <section class="navBarSection">
-          <nav class="navBar">
-            <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#introduction">Introduction</a></li>
-              <li><a href="#challengeButton">Challenge button</a></li>
-              <li><a href="#weatherInfo">Weather Info</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-        </section>
-      </header>
-    </section>
+    <header class="headerSection">
+      <h1 class="headerTitle">Welcome to the Challenge Page</h1>
+      <div class="navBarSection">
+        <nav class="navBar">
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#challengeButton">Challenge button</a></li>
+            <li><a href="#weatherInfo">Weather Info</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <!-- Introduction Section -->
     <section class="introSection">
       <p>Introduction</p>
@@ -50,30 +48,43 @@
         <p id="weatherInfo">Weather Information</p>
         <form id="weatherForm" action="/search" method="GET">
           <input type="text" id="locationInput" placeholder="Enter location" />
-          <button type="submit" class="weatherButton" id="weatherButton">
+          <button type="submit" class="myButton" id="weatherButton">
             Check Weather
           </button>
         </form>
       </section>
       <!-- Weather Result Display -->
-      <section id="weatherResultContainer">
-        <div id="weatherResultData">Weather Result Display</div>
-        <div id="weatherResultDataCountry"></div>
-        <div id="weatherResultTimeZone"></div>
-        <div id="weatherResultTemp"></div>
-        <div id="weatherResultTempFeel"></div>
-        <div id="weatherResultGrndlvl"></div>
-        <div id="weatherResultHumidity"></div>
-        <div id="weatherResultPressure"></div>
-        <div id="weatherResultSeaLevel"></div>
-        <div id="weatherResultWeather"></div>
-        <img id="weatherResultIcon" src="" />
-        <div id="weatherResultWeatherDescription"></div>
-        <div id="weatherResultWindSpeed"></div>
-        <div id="weatherResultWindDeg"></div>
-        <div id="weatherResultWindGust"></div>
-        <div id="weatherResultCloudsAll"></div>
-        <div id="weatherResultVisibility"></div>
+      <section class="weatherResultContainer">
+        <div id="weatherResultData">
+          Enter your city and i'll show you the weather
+        </div>
+        <div id="totalInformation">
+          <div id="weatherResultCity"></div>
+          <div id="weatherResultDataCountry"></div>
+          <div id="weatherResultLocalTime"></div>
+        </div>
+        <div id="weatherResultIconContainer">
+          <img id="weatherResultIcon" src="" />
+        </div>
+        <div id="weatherResultTotal">
+          <div id="weatherResultTemp"></div>
+          <div id="weatherResultTempFeel"></div>
+          <div id="weatherResultGrndlvl"></div>
+          <div id="weatherResultHumidity"></div>
+          <div id="weatherResultWeather"></div>
+          <div id="weatherResultWeatherDescription"></div>
+        </div>
+        <div id="weatherResultWind">
+          <div id="weatherResultWindSpeed"></div>
+          <div id="weatherResultWindDeg"></div>
+          <div id="weatherResultWindGust"></div>
+        </div>
+        <div id="weatherResultOther">
+          <div id="weatherResultPressure"></div>
+          <div id="weatherResultSeaLevel"></div>
+          <div id="weatherResultCloudsAll"></div>
+          <div id="weatherResultVisibility"></div>
+        </div>
       </section>
     </section>
     <!-- Note Section -->
@@ -82,11 +93,29 @@
       <p>Good luck and have fun!</p>
     </section>
     <!-- Footer Section -->
-    <section class="footerSection">
-      <footer>
-        <p>&copy; Challenge Page.</p>
-      </footer>
-    </section>
+    <footer class="footerSection">
+      <p>Follow us on social media for more updates!</p>
+      <p>
+        Contact mail: <a href="mailto:pkyriga@gmail.com">pkyriga@gmail.com</a>
+      </p>
+      <p>
+        GitHub:
+        <a href="https://github.com/htrk6610" target="_blank">htrk6610</a>
+      </p>
+      <p>
+        LinkedIn:
+        <a
+          href="https://www.linkedin.com/in/pavlo-kyriga-5b2b98210/"
+          target="_blank"
+          >Pavlo Kyriga</a
+        >
+      </p>
+      <p>
+        Telegram:
+        <a href="https://t.me/p66101984" target="_blank">@p66101984</a>
+      </p>
+      <p>&copy; Challenge Page.</p>
+    </footer>
     <!-- Link to external JavaScript file -->
     <script src="script.js" type="module"></script>
   </body>

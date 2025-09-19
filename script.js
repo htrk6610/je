@@ -29,16 +29,35 @@ weatherForm.addEventListener("submit", function (event) {
         })
         .then(data => {
             console.log("Weather data fetched successfully:", data);
+            if (data.weather[0].main === "Clouds") {
+                document.body.style.backgroundColor = "#B0C4DE"; // LightSteelBlue for cloudy weather
+                document.body.style.color = "#000000"; // Change text color to black for better visibility
+                document.querySelector(".weatherResultContainer").style.backgroundColor = "#B0C4DE"; // Change background color to black for better visibility
+            }
+            else if (data.weather[0].main === "Clear") {
+                document.body.style.backgroundColor = "#87CEEB"; // SkyBlue for clear weather
+                document.body.style.color = "#000000"; // Change text color to black for better visibility
+                document.querySelector(".weatherResultContainer").style.backgroundColor = "#87CEEB"; // Change background color to black for better visibility
+            }
+            else if (data.weather[0].main === "Rain") {
+                document.body.style.backgroundColor = "#778899"; // LightSlateGray for rainy weather
+                document.body.style.color = "#FFFFFF"; // Change text color to white for better visibility
+                document.querySelector(".weatherResultContainer").style.backgroundColor = "#778899"; // Change background color to black for better visibility
+            }
             const weatherData = document.getElementById("weatherResultData");
-            weatherData.innerHTML = `Погода в ${data.name}:`;
+            weatherData.innerHTML = `Yo from ${data.name}:`;
             console.log("Weather information displayed.");
+            const weatherDataCity = document.getElementById("weatherResultCity");
+            weatherDataCity.innerHTML = `Weather in City: ${data.name}`;
             const weatherDataCountry = document.getElementById("weatherResultDataCountry");
-            weatherDataCountry.innerHTML = `Страна: ${data.sys.country}`;
+            weatherDataCountry.innerHTML = `From country: ${data.sys.country}`;
             const weatherTimezone = document.getElementById("weatherResultTimeZone");
             const timezoneHours = (data.timezone / 3600).toFixed(1);
-            weatherTimezone.innerHTML = `Timezone: UTC ${timezoneHours >= 0 ? '+' : ''}${timezoneHours}`;
+            const weatherLocalTime = document.getElementById("weatherResultLocalTime");
+            const localTime = new Date((Date.now()) + (data.timezone * 1000));
+            weatherLocalTime.innerHTML = `Local Time: ${localTime.toUTCString().replace("GMT", `UTC ${timezoneHours >= 0 ? '+' : ''}${timezoneHours}`)}`;
             const weatherTemp = document.getElementById("weatherResultTemp");
-            weatherTemp.innerHTML = `${data.main.temp}°C`;
+            weatherTemp.innerHTML = `Temperature: ${data.main.temp}°C`;
             const weatherTempFeel = document.getElementById("weatherResultTempFeel");
             weatherTempFeel.innerHTML = `Feels like: ${data.main.feels_like}°C`;
             const weatherGrndlvl = document.getElementById("weatherResultGrndlvl");
