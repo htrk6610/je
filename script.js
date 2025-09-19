@@ -21,7 +21,12 @@ weatherForm.addEventListener("submit", function (event) {
     console.log("Weather check initiated for location:", location);
 
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=a4b1f23a347a948bf30a50fac5ab2023&units=metric&lang=ru`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`ERROR: ${response.status} - ${response.statusText}`);
+            }
+            return response.json();
+        })
         .then(data => {
             console.log("Weather data fetched successfully:", data);
             const weatherData = document.getElementById("weatherResultData");
@@ -47,7 +52,7 @@ weatherForm.addEventListener("submit", function (event) {
             const weatherWeather = document.getElementById("weatherResultWeather");
             weatherWeather.innerHTML = `Weather: ${data.weather[0].main}`;
             const weatherIcon = document.getElementById("weatherResultIcon");
-            weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+            weatherIcon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
             const weatherWeatherDescription = document.getElementById("weatherResultWeatherDescription");
             weatherWeatherDescription.innerHTML = `Description: ${data.weather[0].description}`;
             const weatherWindSpeed = document.getElementById("weatherResultWindSpeed");
@@ -63,7 +68,16 @@ weatherForm.addEventListener("submit", function (event) {
         })
         .catch(error => {
             console.error("Error fetching weather data:", error);
-            const weatherData = document.getElementById("weatherResult");
-            weatherData.innerHTML = "Error fetching weather data. Please try again.";
-        });
+            const weatherResultDataError = document.getElementById("weatherResultData");
+            weatherResultDataError.innerHTML = `<span style="color: red;">${error.message}. </span>`;
+                if (error.message.includes("404")) {
+                    weatherResultDataError.innerHTML += `<span style="color: red;">Check the city name.</span>`;
+            }
+                if (error.message.includes("401")) {
+                weatherResultDataError.innerHTML += `<span style="color: red;">API key issue.</span>`;
+            }
+                if (error.message.includes("400")) {
+                weatherResultDataError.innerHTML += `<span style="color: red;">Enter a city name.</span>`;
+            }
+        })
 });

@@ -8,75 +8,85 @@
   </head>
   <body>
     <!-- Header Section -->
-    <header>
-      <h1>Welcome to the Challenge Page</h1>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <section class="headerSection">
+      <header>
+        <h1 class="headerTitle">Welcome to the Challenge Page</h1>
+        <section class="navBarSection">
+          <nav class="navBar">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#introduction">Introduction</a></li>
+              <li><a href="#challengeButton">Challenge button</a></li>
+              <li><a href="#weatherInfo">Weather Info</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </section>
+      </header>
+    </section>
     <!-- Introduction Section -->
-    <div>
-      <section>Introduction</section>
+    <section class="introSection">
+      <p>Introduction</p>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam delectus
         laudantium veniam, reprehenderit pariatur modi debitis fuga eos iure
         quisquam, quod, at distinctio recusandae. Optio aspernatur numquam fuga
         mollitia iure.
       </p>
-    </div>
+    </section>
     <!-- Challenge Button -->
-    <div>
+    <section class="challengeSection">
       <p>
         Click the button below to accept the challenge and change the background
         color.
       </p>
       <button class="myButton" id="acceptButton">Accept Challenge</button>
-    </div>
+    </section>
     <!-- Weather Information Form -->
-    <div>
+    <section class="weatherSection">
       <!-- Weather Form -->
-      <div>
-        <section>Weather Information</section>
+      <section class="weatherFormSection">
+        <p id="weatherInfo">Weather Information</p>
         <form id="weatherForm" action="/search" method="GET">
           <input type="text" id="locationInput" placeholder="Enter location" />
           <button type="submit" class="weatherButton" id="weatherButton">
             Check Weather
           </button>
         </form>
-      </div>
+      </section>
       <!-- Weather Result Display -->
-      <div id="weatherResultData">Weather Result Display</div>
-      <div id="weatherResultDataCountry"></div>
-      <div id="weatherResultTimeZone"></div>
-      <div id="weatherResultTemp"></div>
-      <div id="weatherResultTempFeel"></div>
-      <div id="weatherResultGrndlvl"></div>
-      <div id="weatherResultHumidity"></div>
-      <div id="weatherResultPressure"></div>
-      <div id="weatherResultSeaLevel"></div>
-      <div id="weatherResultWeather"></div>
-      <img id="weatherResultIcon" src="" />
-      <div id="weatherResultWeatherDescription"></div>
-      <div id="weatherResultWindSpeed"></div>
-      <div id="weatherResultWindDeg"></div>
-      <div id="weatherResultWindGust"></div>
-      <div id="weatherResultCloudsAll"></div>
-      <div id="weatherResultVisibility"></div>
-    </div>
+      <section id="weatherResultContainer">
+        <div id="weatherResultData">Weather Result Display</div>
+        <div id="weatherResultDataCountry"></div>
+        <div id="weatherResultTimeZone"></div>
+        <div id="weatherResultTemp"></div>
+        <div id="weatherResultTempFeel"></div>
+        <div id="weatherResultGrndlvl"></div>
+        <div id="weatherResultHumidity"></div>
+        <div id="weatherResultPressure"></div>
+        <div id="weatherResultSeaLevel"></div>
+        <div id="weatherResultWeather"></div>
+        <img id="weatherResultIcon" src="" />
+        <div id="weatherResultWeatherDescription"></div>
+        <div id="weatherResultWindSpeed"></div>
+        <div id="weatherResultWindDeg"></div>
+        <div id="weatherResultWindGust"></div>
+        <div id="weatherResultCloudsAll"></div>
+        <div id="weatherResultVisibility"></div>
+      </section>
+    </section>
     <!-- Note Section -->
-    <div>
+    <section class="noteSection">
       <p>Note: This is a demo page for the coding challenge.</p>
       <p>Good luck and have fun!</p>
-    </div>
+    </section>
     <!-- Footer Section -->
-    <div>
+    <section class="footerSection">
       <footer>
-        <p>&copy; 2024 Challenge Page. All rights reserved.</p>
+        <p>&copy; Challenge Page.</p>
       </footer>
+    </section>
     <!-- Link to external JavaScript file -->
     <script src="script.js" type="module"></script>
   </body>
